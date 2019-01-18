@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initaial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>NEW WAVE</title>
+	<link rel="stylesheet" type="text/css" href="../jquery.pagepiling.css" />
+	<link rel="stylesheet" type="text/css" href="newwave.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<script type="text/javascript" src="../jquery.pagepiling.min.js"></script>
+	<script type="text/javascript">
+		var deleteLog = false;
+
+		$(document).ready(function() {
+
+			$( 'button#jbInputButton' ).click( function() {
+				var jb = $( 'input#jbInput' ).val();
+				if( jb == 2019 ){
+					alert( 'correct!' );
+					$("#section3 .phone img").attr("src", "imgs/phoneOn.png");
+				} else {
+					alert( 'wrong!' );
+				}
+			} );
+			$('#section1 #board .one').on('click', function(){
+				/*$("#boy img").fadeOut("fast", function () {*/
+            	$("#boy img").attr("src", "imgs/cheese.png")
+           		/*$("#boy img").fadeIn();*/
+        		
+			});
+	    	$('#section1 #board .two').on('click', function(){
+				/*$("#boy img").fadeOut("fast", function () {*/
+            	$("#boy img").attr("src", "imgs/pizza.png")
+           		/*$("#boy img").fadeIn();
+        		});*/
+			});
+	    	$('#section1 #board .three').on('click', function(){
+				/*$("#boy img").fadeOut("fast", function () {*/
+            	$("#boy img").attr("src", "imgs/cake.png")
+           		/*$("#boy img").fadeIn();
+        		});*/
+			});
+
+	    	$('#section2 .diary img').on('click', function(){
+				alert("Don't touch my diary!")
+			});
+
+			$('#section2 .printbtn').on('click', function(){
+				$("#section2 .todo img").fadeOut(function () {
+            			$("#section2 .todo img").attr("src", "imgs/todolistO.png")
+            	$("#section2 .todo img").delay(2500).fadeIn();
+
+        		});
+        		$("#section2 .print").slideDown(3000);
+			});
+
+
+
+	    	$('#pagepiling').pagepiling({
+	    		menu: '#menu',
+	    		anchors: ['page1', 'page2', 'page3'],
+	    		navigation: {
+		            'textColor': '#f2f2f2',
+		            'bulletsColor': '#ccc',
+		            'position': 'right',
+		            'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4']
+		        }
+			});
+	    });
+    </script>
+
+    <style>
+    /* Style for our header texts
+	* --------------------------------------- */
+	h1{
+
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	#section1,
+	#section2,
+	#section3{
+		background-size: cover;
+	}
+
+	/* Defining each section background and styles
+	* --------------------------------------- */
+	#section1{
+		background-color:blue;
+	}
+	#section2{
+		background-color:yellow;
+		padding: 6% 0 0 0;
+	}
+	#section3{
+		background-color:red;
+		padding: 6% 0 0 0;
+	}
+	
+
+	#infoMenu li a{
+			color: #fff;
+	}
+    </style>
+
+</head>
+<body>
+	<div class="logo">
+		<img src="imgs/logo.png">
+	</div>
+	<ul id="menu">
+		<li data-menuanchor="page1" class="active"><a href="#page1">how</a></li>
+		<li data-menuanchor="page2"><a href="#page2">now</a></li>
+		<li data-menuanchor="page3"><a href="#page3">wow</a></li>
+	</ul>
+
+	<div id="pagepiling">
+		<!-- section1 -->
+	    <div class="section" id="section1">
+	    	<div id="boy">
+	    		<img src="imgs/cheese.png">
+	    	</div>
+	    	<div class="choice">
+	    		<h1>"Choose your board."</h1>
+	    	</div>
+	    	<ul id="board">
+	    		<li class="one"></li>
+	    		<li class="two"></li>
+	    		<li class="three"></li>
+	    	</ul>
+	    </div>
+	    <!-- section2 -->
+	    <div class="section" id="section2">
+	    	<div class="diary">
+	    		<img src="imgs/diary.png">
+	    	</div>
+	    	<div class="printer">
+	    	</div>
+	    	<div class="printbtn">
+	    		<h1>print</h1>
+	    	</div>
+	    	<div class="print">
+	    		<img src="imgs/print.png">
+	    	</div>
+	    	<div class="todo">
+	    		<img src="imgs/todolistX.png">
+	    	</div>
+	    </div>
+	    <div class="section" id="section3">
+	    	<div class="guess">
+	    		<h1>"Guess my pw."</h1>
+	    		<h2>4-digit password. Hint: Year</h2>
+	    	</div>
+	    	<div class="pw">
+	    		<input type="number" id="jbInput">
+	    		<button id="jbInputButton">enter</button>
+	    	</div>
+	    	<div class="phone">
+	    		<img src="imgs/phoneoff.png">
+	    	</div>
+	    </div>
+	</div>
+
+</body>
+</html>
